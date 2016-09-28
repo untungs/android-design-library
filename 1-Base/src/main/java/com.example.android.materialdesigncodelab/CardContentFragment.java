@@ -6,12 +6,15 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,6 +41,30 @@ public class CardContentFragment extends Fragment {
             image = (ImageView) itemView.findViewById(R.id.card_image);
             title = (TextView) itemView.findViewById(R.id.card_title);
             description = (TextView) itemView.findViewById(R.id.card_desc);
+
+            Button actionButton = (Button) itemView.findViewById(R.id.action_button);
+            actionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(v, "Action is pressed", Snackbar.LENGTH_LONG).show();
+                }
+            });
+
+            ImageButton favoriteButton = (ImageButton) itemView.findViewById(R.id.favorite_button);
+            favoriteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(v, "Added to Favorite", Snackbar.LENGTH_LONG).show();
+                }
+            });
+
+            ImageButton shareButton = (ImageButton) itemView.findViewById(R.id.share_button);
+            shareButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(v, "Shared article", Snackbar.LENGTH_LONG).show();
+                }
+            });
         }
     }
 
